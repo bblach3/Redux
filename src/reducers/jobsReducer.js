@@ -25,8 +25,8 @@ const jobsReducer = (state, action) => {
 
         case ADD_TO_FAVS:
             let newCartItems = [...state.favorites];
- 
-    
+            let newNumberOfItems = state.numberOfItems;
+
             //newCartItems.push({...action.jobs})
             const {id} = action.jobs
             const alreadyExists = newCartItems.find(job => {
@@ -37,12 +37,13 @@ const jobsReducer = (state, action) => {
             }
             else {
                 newCartItems.push({...action.jobs})
+                newNumberOfItems++;
             }
 
             return {
                 ...state, 
                 favorites: newCartItems,
-                numberOfItems: state.numberOfItems + 1
+                numberOfItems: newNumberOfItems
                 
             }
 

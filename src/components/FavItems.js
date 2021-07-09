@@ -57,9 +57,9 @@ const FavItems = () => {
 
                         <Modal show={show} onHide={handleClose}>
                                 <Modal.Header closeButton>
-                                <Modal.Title><b>{item.title}</b> at {item.company_name}</Modal.Title>
+                                <Modal.Title><b><h2>{item.title}</h2></b> at {item.company_name}</Modal.Title>
                                 </Modal.Header>
-                                <Modal.Body> {item.description} </Modal.Body>
+                                <Modal.Body dangerouslySetInnerHTML={{ __html: item.description }}></Modal.Body>
                                 <Modal.Footer>
                                 <Button variant="danger" onClick={handleClose}>
                                     Close
