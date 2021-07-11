@@ -34,3 +34,9 @@ textarea {
 .cart-items img{
   width: 5rem;
 }
+
+.shadow-box-example {
+  height: 120px;
+  width: 100%;
+  background-color: #64b5f6;
+}

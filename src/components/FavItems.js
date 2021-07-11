@@ -1,8 +1,10 @@
 import React, {useState} from "react";
 import {useSelector, useDispatch} from 'react-redux';
 import Fade from 'react-reveal/Fade';
+import Bounce from 'react-reveal/Bounce';
 import { removeJob } from "../actions/addFavsAction";
 import {Form, Button, Modal, Col} from 'react-bootstrap'
+import './style.css'
 
 
 const FavItems = () => {
@@ -24,7 +26,7 @@ const FavItems = () => {
             ?
             <div>You have no jobs saved</div>
             : 
-            <div>
+            <div >
                 <i>You have <em>{numberOfItems}</em> jobs saved below:</i>
             </div>
             
@@ -32,11 +34,11 @@ const FavItems = () => {
     </div>
     <br></br>
 
-        <Fade left cascade>
-        <div className="row cart-items" >
+        <Bounce left cascade>
+        <div className="row cart-items sticky-top" >
         
             {favItems.map(item =>{
-                return <div key={item.id} className="col-12 d-flex flex-column mb-2 product card border-5 cardshadow">
+                return <div key={item.id} className="col-12 bg-light d-flex flex-column mb-4 product card border-5 shadow">
 
                     <div className="d-flex">
                    
@@ -45,13 +47,13 @@ const FavItems = () => {
                             </div>
                     </div>
 
-                    <div className="">
-                    <Button variant="info" onClick={()=>handleShow(item.id)}>
+                    <div className="mb-3 mt-3">
+                    <Button variant="dark" onClick={()=>handleShow(item.id)}>
                                             More Details
                                     </Button>
                     <button 
                         onClick={()=> dispatch(removeJob(item.id))}
-                        className="btn btn-dark border-dark">Remove</button>
+                        className="btn btn-danger ml-3 border-dark">Remove</button>
 
 
 
@@ -61,13 +63,12 @@ const FavItems = () => {
                                 </Modal.Header>
                                 <Modal.Body dangerouslySetInnerHTML={{ __html: item.description }}></Modal.Body>
                                 <Modal.Footer>
-                                <Button variant="danger" onClick={handleClose}>
-                                    Close
-                                </Button>
                                 <Button href={item.url} target="_blank" rel="noopener noreferrer" variant="info" >
                                     Apply                                    
                                 </Button>
-                                
+                                <Button variant="danger" onClick={handleClose}>
+                                    Close
+                                </Button>
                                 </Modal.Footer>
                         </Modal>
 
@@ -78,7 +79,7 @@ const FavItems = () => {
                 </div>
             })}
         </div>
-        </Fade>
+        </Bounce>
   </>;
 };
 

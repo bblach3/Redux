@@ -1,0 +1,21 @@
+.shadow-box-example {
+    height: 120px;
+    width: 100%;
+    /* background-color: #64b5f6; */
+  }
+
+  div.sticky-top {
+    position: -webkit-sticky; /* Safari */
+    position: sticky;
+    top: 0;
+  }
+
+  .count{
+      font-weight: bolder;
+      font-size: 20px;
+      color: black
+  }
+
+.bgcolor{
+    background-color: rgb(129, 230, 196);
+}
